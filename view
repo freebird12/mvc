@@ -1,0 +1,40 @@
+@model mvc_q3.Models.employee_ques
+@{
+    ViewBag.Title = "view";
+
+
+}
+<h2>view</h2>
+
+<table>
+    <thead>
+        <th>Emploee Id</th>
+        <th>Name</th>
+        <th>Date of Birth</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>City</th>
+    </thead>
+
+    @foreach(var i in ViewBag.b )
+    {
+        <tr>
+        <td>@i.empid</td>
+            <td>@i.name</td>
+            <td>@i.dob</td>
+            <td>@i.age</td>
+            <td>@i.gender</td>
+            <td>@i.city</td>
+
+    </tr>
+    }
+</table>
+<style>
+    table #table1 {
+        border: groove;
+    }
+    thead{
+        background-color:aliceblue;
+    }
+    th,td{padding:15px;}
+</style>
