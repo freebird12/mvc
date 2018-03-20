@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using mvc_q3.Models;
+using System.Data.Entity.Core.Objects;
+
+namespace mvc_q3.Controllers
+{
+    public class employeeController : Controller
+    {
+        // GET: employee
+        public ActionResult add()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult add(employee_ques e)
+        {
+            if (ModelState.IsValid)
+            {
+                DB01TEST01Entities db = new DB01TEST01Entities();
+                ObjectParameter obj = new ObjectParameter("empid",0);
+                db.add_emp_ques( e.name, e.age, e.dob, e.city, e.gender,obj);
+                int eid = Convert.ToInt32(obj.Value);
+
+                Response.Write("<script>alert('Success')</script>");
+                Response.Write("<script>alert('Employee Added Successfully!! Employee id=" + eid + "')</script>");
+
+            }
+            return View();
+
+        }
+        public ActionResult view()
+        {
+            DB01TEST01Entities db = new DB01TEST01Entities();
+            var v=db.emp_view_ques().ToList();
+            ViewBag.b = v;
+            return View();
+        }
+
+        public ActionResult delete(int? id)
+        {
+            DB01TEST01Entities db = new DB01TEST01Entities();
+            db.emp_del_ques(id);
+            var v = db.emp_view_ques().ToList();
+            ViewBag.b = v;
+            return View("delete");
+        }
+        public ActionResult update()
+        {
+            DB01TEST01Entities db = new DB01TEST01Entities();
+            var v = db.emp_view_ques().ToList();
+            ViewBag.b = v;
+            return View("update");
+        }
+        public ActionResult update1()
+        {
+            return View("add");
+        }
+        
+                [HttpPost]
+                public ActionResult update1(employee_ques e)
+                {
+                    DB01TEST01Entities db = new DB01TEST01Entities();
+                    db.employee_update_ques(e.empid,e.city,e.name,e.age);
+                    Response.Write("<script>alert('UPDATED SUCCESSFULLY!!'</script>");
+                    var v = db.emp_view_ques().ToList();
+                    ViewBag.b = v;
+                    return View("update");
+           }
+
+    }
+}
