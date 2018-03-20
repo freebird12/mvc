@@ -1,0 +1,42 @@
+@model mvc_q3.Models.employee_ques
+@{
+    ViewBag.Title = "add";
+}
+
+<h2>add</h2>
+
+@using (Html.BeginForm())
+{  <table>
+        <tr>
+            <td>@Html.Label("Name")</td>
+            <td>@Html.TextBoxFor(s => s.name)</td>
+            <td>@Html.ValidationMessageFor(s => s.name)</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Age")</td>
+            <td>@Html.TextBoxFor(s => s.age)</td>
+            <td>@Html.ValidationMessageFor(s => s.age)</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Date of Birth")</td>
+            <td>@Html.TextBoxFor(s => s.dob)</td>
+            <td>@Html.ValidationMessageFor(s => s.dob)</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Gender")</td>
+            <td>@Html.TextBoxFor(s => s.gender)</td>
+            <td>@Html.ValidationMessageFor(s => s.gender)</td>
+        </tr>
+       <tr>
+           <td>@Html.Label("City")</td>
+           <td>@Html.TextBoxFor(s => s.city)</td>
+           <td>@Html.ValidationMessageFor(s => s.city)</td>
+       </tr>
+    <tr>
+
+        <td></td>
+        <td><input type="submit" value="save details"/> </td></tr>
+    
+ 
+        </table>
+}
