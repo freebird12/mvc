@@ -1,0 +1,18 @@
+Create the following table in DB01TMS55_1718.
+tbl_Customer_EmpId
+Column Description
+EmployeeID Should be auto generated
+Name Name of the Employee
+Age Age of the Employee
+DateofBirth Date of birth of the Employee.
+City City of the Employee.
+Gender Gender of the Employee.
+Create a MVC Web Application for the below operations:
+Crud Operation 1 : Register Employee
+Create a web page using layout page and which is used to register the Employee and on click of submit
+button need to show a pop up message with Success message and EmployeeID.
+Crud Operation 2: View Employee
+It should display All the registered Employee in a table or a web gird.
+Crud Operation 2: Delete Employee
+It should enable the user to delete the particular employee.
+Use Connected or disconnected ADO.NET model . Handle all run time exceptions too
