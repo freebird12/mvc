@@ -1,0 +1,44 @@
+@model mvc_q3.Models.employee_ques
+@{
+    ViewBag.Title = "update1";
+}
+
+<h2>update1</h2>
+
+<table>
+    <thead>
+    <th>Emploee Id</th>
+    <th>Name</th>
+    <th>Date of Birth</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>City</th>
+    <th>Action</th>
+    </th>
+
+    @foreach (var i in ViewBag.b)
+    {
+        <tr>
+            <td>@i.empid</td>
+            <td>@i.name</td>
+            <td>@i.dob</td>
+            <td>@i.age</td>
+            <td>@i.gender</td>
+            <td>@i.city</td>
+            <td> @Html.ActionLink("Update", "update", new { i.empid })</td>
+        </tr>
+    }
+</table>
+<style>
+    table #table1 {
+        border: groove;
+    }
+
+    thead {
+        background-color: aliceblue;
+    }
+
+    th, td {
+        padding: 15px;
+    }
+</style>
